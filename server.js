@@ -58,7 +58,7 @@ app.get("/top_customer", function (req, res) {
     SUM(O.QTY*P.price) AS price_sum 
   FROM a1_customer AS C 
     INNER JOIN a1_order AS O ON C.Cid = O.Cid
-    INNER JOIN a1_products AS P ON O.Pid = P.Pid
+    INNER JOIN a1_product AS P ON O.Pid = P.Pid
   GROUP BY 
     C.Cid
   ORDER BY 
