@@ -51,7 +51,7 @@ app.get('/product', function(req, res) {
   )
 })
 // เรียงลับดับจากคนที่ซื้อเยอะ => น้อยที่สุด
-app.get("/top_customers", function (req, res) {
+app.get("/top_customer", function (req, res) {
   connection.query(
     `SELECT 
     C.firstName, 
@@ -70,7 +70,7 @@ app.get("/top_customers", function (req, res) {
 });
 
 // เรียงลับดับจากคนที่ซื้อเยอะ => น้อยที่สุด
-app.get('/top_products', function(req, res){
+app.get('/top_product', function(req, res){
   connection.query(
     `SELECT O.id, P.PName, O.QTY, SUM(O.QTY*P.price) as Total_QTY FROM a1_order as O INNER JOIN a1_Product as P ON O.Pid = P.Pid GROUP BY O.id, P.PName, O.QTY, P.price ORDER BY Total_QTY DESC;`,
     function (err, results) {
@@ -80,7 +80,7 @@ app.get('/top_products', function(req, res){
 });
 
 
-app.post("/createusers", function (req, res) {
+app.post("/createuser", function (req, res) {
   const Firstname = req.body.Firstname;
   const Lastname = req.body.Lastname;
   const Email = req.body.Email;
@@ -100,7 +100,7 @@ app.post("/createusers", function (req, res) {
   );
 });
 
-app.post('/orders', function(req, res) {
+app.post('/order', function(req, res) {
   const values = req.body
   console.log(values)
   connection.query(
