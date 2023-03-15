@@ -21,7 +21,7 @@ app.get('/', function(req, res) {
   })
 })
 
-app.get('/customer', function(req, res) {
+app.get('/customers', function(req, res) {
   connection.query(
     'SELECT * FROM a1_customer',
     function(err, results) {
@@ -31,7 +31,7 @@ app.get('/customer', function(req, res) {
   )
 })
 
-app.get('/order', function(req, res) {
+app.get('/orders', function(req, res) {
   connection.query(
     'SELECT * FROM a1_order',
     function(err, results) {
@@ -41,7 +41,7 @@ app.get('/order', function(req, res) {
   )
 })
 
-app.get('/product', function(req, res) {
+app.get('/products', function(req, res) {
   connection.query(
     'SELECT * FROM a1_product',
     function(err, results) {
@@ -80,7 +80,7 @@ app.get('/top_products', function(req, res){
 });
 
 
-app.post("/createuser", function (req, res) {
+app.post("/createusers", function (req, res) {
   const Firstname = req.body.Firstname;
   const Lastname = req.body.Lastname;
   const Email = req.body.Email;
@@ -100,7 +100,7 @@ app.post("/createuser", function (req, res) {
   );
 });
 
-app.post('/order', function(req, res) {
+app.post('/orders', function(req, res) {
   const values = req.body
   console.log(values)
   connection.query(
